@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/main.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <div class="logo">KABUR</div>
+    </nav>
+    <div class="cancel_payment">
+        <a href="{{ url_for('cancel_payment') }}">Cancel Payment</a>
+    </div>
+    <payment></payment>
+    <div class="invoice-payment">
+        <div class="invoice-card">
+            <div class="header">
+                <h2>Invoice</h2>
+                <div class="serial-number">Invoice Id : {{ serial }}</div>
+            </div>
+            <div class="container">
+        {% for x in range(food_amount)  %}
+            {% if food_unit[x]  > 0 %}
+                <div class="invoice">
+                    <div class="invoice-name">{{ food_name[x] }}</div>
+                    <div class="invoice-price-unit">
+                        <div class="invoice-price">Rp.{{ food_price[x] * food_unit[x] }}</div>
+                        <div class="invoice-unit">{{ food_unit[x] }} unit</div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+        {% for x in range(drink_amount)  %}
+            {% if drink_unit[x]  > 0 %}
+                <div class="invoice">
+                    <div class="invoice-name">{{ drink_name[x] }}</div>
+                    <div class="invoice-price-unit">
+                        <div class="invoice-price">Rp.{{ drink_price[x] * drink_unit[x] }}</div>
+                        <div class="invoice-unit">{{ drink_unit[x] }} unit</div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+                <div class="invoice-total">
+                    <div class="invoice-total-text">Total</div>
+                    <div class="invoice-total-price">Rp.{{ total }}</div>
+                </div>
+            </div>
+        </div>
+        <form action="/payment" method="post">
+            <div class="payment-card">
+                <div class="header">
+                    <h2>Payment</h2>
+                </div>
+                <div class="input-group">
+                    <input type="hidden" name="total" value="{{ total }}">
+                    <input type="number" name="money" id="" min={{ total }} required>
+                    <button type="submit">Pay</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

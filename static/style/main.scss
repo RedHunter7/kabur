@@ -1,0 +1,34 @@
+/* Import base like variables ,mixins or functions */
+@import "./base/variables";
+@import "./base/responsive";
+
+/* Import component */
+@import "./component/neumorphism";
+@import "./component/center";
+@import "./component/form";
+
+/*import Web layout */
+@import './layout/topnav';
+@import "./layout/login";
+@import "./layout/card-list";
+@import "./layout/invoice-card";
+@import "./layout/payment-card";
+@import "./layout/panel";
+
+html , body {
+    background: getColor(primary);
+    margin: 0;
+}
+
+.invoice-payment {
+    margin: auto;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    @include tablet {
+        display: initial;
+    }
+}

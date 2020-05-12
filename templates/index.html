@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/main.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <div class="logo">KABUR</div>
+    </nav>
+    {% if error %}
+        <div class="error-message">{{ error }}</div>
+    {% endif %}
+    <main>
+        <div class="container">
+            <div class="imgSide">
+                <img src="{{ url_for('static', filename='style/image/shibupavizha-george-4ppU7sxgOBE-unsplash.jpg') }}" alt="">
+            </div>
+            <div class="loginSide">
+                <h2>Login</h2>
+                <form method="POST" action="/">
+                    <div class="input-group">
+                        <label for="">Username</label>
+                        <input type="text" name="username" id="">
+                    </div>
+                    <div class="input-group">
+                        <label for="">Password</label>
+                        <input type="password" name="password" id="">
+                    </div>
+                    <div class="input-group">
+                        <button type="submit" name="login">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,31 @@
+.payment-card {
+    @extend %neumorphism-object;
+    margin: auto;
+    margin-top: 100px;
+    width: 364px;
+    height: fit-content;
+    @include phone {
+        width: 90%;
+    }
+    .header {
+        background: getColor(accent);
+        border-radius: 40px 40px 0 0;
+        height: 75px;
+        width: 100%;
+        text-align: center;
+        h2 {
+            font-size: 48px;
+            color: getColor(secondary);
+            font-family: getFont(ui);
+            font-weight: 800;
+            margin: 0;
+        }
+    }
+    .input-group {
+        margin-top: 40px;
+        button {
+            margin-top: 40px;
+            height: 60px;
+        }
+    }
+}

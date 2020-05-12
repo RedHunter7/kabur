@@ -1,0 +1,18 @@
+nav {
+    @extend %center-flex;
+    background: getColor(secondary);
+    width: 100%;
+    height: 100px;
+    border-radius: 0 0 40px 40px;
+    box-shadow: 10px 10px 30px rgba($color: getColor(accent), $alpha: 0.3);
+    @include phone {
+        height: 24.155vw;
+    }
+    .logo {
+        font-family: getFont(logo);
+        font-size: 60px;
+        @include phone {
+            font-size: 14.493vw;
+        }
+    }
+}

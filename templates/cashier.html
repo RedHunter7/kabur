@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/main.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <div class="logo">KABUR</div>
+    </nav>
+    <div class="account-panel">
+        <div class="account-name">{{ username }}</div>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+{% if change %}
+    <div class="payment_success">
+        <h2>Payment Success</h2>
+        <h2>Change = Rp.{{ change }}</h2>
+    </div>
+{% endif %}
+    <form action="/invoice" method='post'>
+        <div class="card-list">
+            <div class="list-header">
+                <h2>Makanan</h2>
+            </div>
+            <div class="container">
+            {% for x in range(food_amount) %}
+                <div class="card">
+                    <div class="card-image">
+                        <img src="{{ url_for('static', filename='style/image/' + food['food_image'][x] ) }}" alt="">
+                    </div>
+                    <div class="card-tittle">{{ food['food_name'][x] }}</div>
+                    <div class="card-price">Rp.{{ food['food_price'][x] }}</div>
+                    <div class="card-action">
+                        <div class="input-group">
+                            <input type="hidden" name="food_name[]" value="{{ food['food_name'][x] }}">
+                            <input type="hidden" name="food_price[]" value="{{ food['food_price'][x] }}">
+                            <input type="number" name="food_unit[]" id="" value="0" min="0" max="10" required>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+        <div class="card-list">
+            <div class="list-header">
+                <h2>Minuman</h2>
+            </div>
+            <div class="container">
+            {% for x in range(drink_amount) %}
+                <div class="card">
+                    <div class="card-image">
+                        <img src="{{ url_for('static', filename='style/image/' + drink['drink_image'][x] ) }}" alt="">
+                    </div>
+                    <div class="card-tittle">{{ drink['drink_name'][x] }}</div>
+                    <div class="card-price">Rp.{{ drink['drink_price'][x] }}</div>
+                    <div class="card-action">
+                        <div class="input-group">
+                            <input type="hidden" name="drink_name[]" value="{{ drink['drink_name'][x] }}">
+                            <input type="hidden" name="drink_price[]" value="{{ drink['drink_price'][x] }}">
+                            <input type="number" name="drink_unit[]" id="" value="0" min="0" max="10" required>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+        <div class="input-group">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</body>
+</html>

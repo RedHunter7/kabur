@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Nova+Flat&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&display=swap');
+
+$colors : (
+    primary : #EEEEEE ,
+    secondary : #00ADB5 ,
+    accent : #303841 ,
+    tertiary : #000000 ,
+    success : #17b978,
+    error : #ff304f ,
+);
+
+@function getColor($color-name) {
+    @return map-get($colors, $color-name);
+}
+
+$fonts : (
+    logo : 'Nova Flat' ,
+    ui : 'Montserrat Alternates' ,
+);
+
+@function getFont($font-name) {
+    @return map-get($fonts, $font-name);
+}

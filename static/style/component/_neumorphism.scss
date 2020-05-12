@@ -1,0 +1,41 @@
+%neumorphism-object {
+    border-radius: 40px;
+    box-shadow: -10px -10px 30px #FFFFFF, 
+                 10px 10px 30px rgba(176, 175, 175, 0.5);
+}
+
+%neumorphism-image {
+    box-shadow: 10px 10px 30px rgba(3, 3, 3, 0.3),
+               -10px -10px 30px #FFFFFF;
+    border-radius: 40px;
+}
+
+%neumorphism-input {
+    box-shadow: -10px -10px 30px #FFFFFF, 
+                 10px 10px 50px #B0AFAF;
+    border-radius: 40px;
+}
+
+@mixin neumorphism-input-responsive {
+    box-shadow: -5px -5px 10px #FFFFFF, 
+                 5px 5px 10px #B0AFAF;
+}
+
+%neumorphism-input-focus {
+    &:focus {
+        box-shadow: -10px -10px 30px #B0AFAF, 
+                 10px 10px 50px #FFFFFF;
+    }
+}
+
+%neumorphism-button-hover {
+    &:hover {
+        transform: translateY(3px);
+    }
+}
+
+%neumorphism-button-active {
+    &:active {
+        transform: translate(3px,3px);
+    }
+}

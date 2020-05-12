@@ -1,0 +1,72 @@
+%panel {
+    margin: auto;
+    margin-top: 50px;
+    width: 60%;
+    height: fit-content;
+    padding: 5px 0;
+    font-size: 25px;
+    font-family: getFont(ui);
+    font-weight: 500;
+}
+
+.error-message, .cancel_payment, .payment_success {
+    @extend %panel;
+    @extend %neumorphism-object;
+    color: getColor(primary);
+    text-align: center;
+    @include tablet {
+        font-size: 6.039vw;
+        width: 80%;
+    }
+}
+
+.error-message, .cancel_payment {
+    background: getColor(error);
+}
+
+.payment_success {
+    background: getColor(success);
+}
+
+.cancel_payment {
+    a {
+        text-decoration: none;
+        color: getColor(primary);
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.account-panel {
+    @extend %panel;
+    @extend %neumorphism-object;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-weight: 700;
+    @include phone {
+        width: 90%;
+        font-size: 6.039vw;
+    }
+    .account-name, a {
+        padding: 20px 40px;
+        @include phone {
+            padding: 4.831vw 9.662vw;
+        }
+    }
+    .account-name {
+        background: getColor(secondary);
+        color: getColor(primary);
+        border-radius: 40px 0 0 40px;
+    }
+    a {
+        background: getColor(error);
+        text-align: right;
+        text-decoration: none;
+        color: getColor(primary);
+        border-radius: 0 40px 40px 0;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

@@ -1,0 +1,94 @@
+%remove-focus-border {
+    &:focus {
+        outline: none;
+    }
+}
+.input-group {
+    margin: auto;
+    margin-bottom: 1.389vw;
+    width: 70%;
+    text-align: center;
+    @include tablet {
+        margin-bottom: 3.906vw;
+    }
+    @include mini-tablet {
+        width: 80%;
+    }
+    label {
+        text-align: left;
+        font-family: getFont(ui);
+        font-size: 1.667vw;
+        display: block;
+        margin-bottom: 1.389vw;
+        @include tablet {
+            font-size: 36px;
+        }
+        @include mini-tablet {
+            font-size: 4.688vw;
+            margin-bottom: 4.831vw;
+        }
+    }
+    input[type=text] , input[type=password] , input[type=number] {
+        @extend %neumorphism-input;
+        padding: 0 10%;
+        background: getColor(accent);
+        color: getColor(primary);
+        font-size: 2.813vw;
+        width: 80%;
+        height: 4.167vw;
+        @extend %remove-focus-border;
+        @extend %neumorphism-input-focus;
+        @include tablet {
+            font-size: 36px;
+            height: 80px;
+        }
+        @include mini-tablet {
+            height: 10.417vw;
+            font-size: 4.688vw;
+            @include neumorphism-input-responsive;
+        }
+    }
+
+    input[type=number] {
+        width: 80%;
+        text-align: center;
+        &::-webkit-outer-spin-button , &::-webkit-inner-spin-button {
+            appearance: none;
+        } 
+        @include phone {
+            height: 16.908vw;
+        }
+    }
+
+    button {
+        @extend %neumorphism-input;
+        margin-top: 0.694vw;
+        margin-bottom: 0.694vw;
+        width: 80%;
+        height: 5.556vw;
+        background: getColor(secondary);
+        color: getColor(accent);
+        font-family: getFont(ui);
+        font-size: 2.500vw;
+        font-weight: 600;
+        @extend %remove-focus-border;
+        @extend %neumorphism-button-hover;
+        @extend %neumorphism-button-active;
+        @include tablet {
+            font-size: 36px;
+            height: 80px;
+            width: 250px;
+        }
+        @include mini-tablet {
+            margin-top: 3.906vw;
+            margin-bottom: 3.906vw;
+            font-size: 4.688vw;
+            height: 16.908vw;
+            width: 80%;
+            @include neumorphism-input-responsive;
+        }
+        @include phone {
+            font-size: 7.246vw;
+        }
+    }
+}
