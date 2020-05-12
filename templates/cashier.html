@@ -20,6 +20,10 @@
         <h2>Change = Rp.{{ change }}</h2>
     </div>
 {% endif %}
+
+{% if error %}
+    <div class="error-message">{{ error }}</div>
+{% endif %}
     <form action="/invoice" method='post'>
         <div class="card-list">
             <div class="list-header">

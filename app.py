@@ -31,6 +31,18 @@ def cashier(username) :
     if 'serial_number' in session :
         return redirect(url_for('invoice'))
 
+    if 'error' in session :
+        error = session['error']
+        session.pop('error',None)
+        return render_template('cashier.html',
+            username=user.username, 
+            food=user.food[user.username], 
+            food_amount= len(user.food[user.username]['food_name']),
+            drink=user.drink[user.username],
+            drink_amount=len(user.drink[user.username]['drink_name']),
+            error = error
+        )
+
     if 'change' in session :
         change = session['change']
         session.pop('change',None)
@@ -71,6 +83,7 @@ def invoice() :
         drink_amount = len(drink_name)
 
         total = 0
+        error_count = 0
 
         #counting Food Total Price
         for x in range(0,food_amount) :
@@ -78,6 +91,8 @@ def invoice() :
             food_price[x] = int(food_price[x])
             if food_unit[x] > 0 :
                 total = total + food_unit[x] * food_price[x]
+            else :
+                error_count = error_count + 1
 
         #counting Drink Total Price
         for x in range(0,drink_amount) :
@@ -85,6 +100,12 @@ def invoice() :
             drink_price[x] = int(drink_price[x])
             if drink_unit[x] > 0 :
                 total = total + drink_unit[x] * drink_price[x]
+            else :
+                error_count = error_count + 1
+
+        if error_count == food_amount + drink_amount:
+            session['error'] = 'Submit Error, you must input your food/drink amount'
+            return redirect(url_for('cashier', username=session['username']))
 
         # Assign food data value to session variable
         session['food_name'] = food_name.copy()
