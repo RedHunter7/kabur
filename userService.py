@@ -57,6 +57,16 @@ class userService:
             "sisko-afnindar-DEi2lb48EQc-unsplash.jpg",
             "markus-winkler-Fc4wTAhoKaw-unsplash.jpg" 
         ]
+      },
+
+      "superadmin" : {
+        "food_name" : ["Burger" , "Pizza" , "Spagetti"],
+        "food_price" : [15000 , 30000, 10000],
+        "food_image" : [
+          "ilya-mashkov-mkVa2hLJgnI-unsplash.jpg",
+          "aurelien-lemasson-theobald-x00CzBt4Dfk-unsplash.jpg",
+          "amirali-mirhashemian-v2z6Yhp_6Gc-unsplash.jpg"
+        ]
       }
     }
     self.drink = {
@@ -68,6 +78,15 @@ class userService:
             "daisy-lin-z6hbN1t60q4-unsplash.jpg",
             "jason-wong-kSlL887znkE-unsplash.jpg",
             "thomas-vimare-7ZkoxdZLrog-unsplash.jpg" 
+        ]
+      },
+
+      "superadmin" : {
+        "drink_name" : ["Dalgona Coffee", "Capucino Coffee"],
+        "drink_price" : [8000, 9000],
+        "drink_image" : [
+          "isabela-kronemberger-FEZ3LXJ9uAY-unsplash.jpg",
+          "fahmi-fakhrudin-nzyzAUsbV0M-unsplash.jpg"
         ]
       }
     }
